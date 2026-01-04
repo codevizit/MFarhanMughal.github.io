@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shahzaibshafique.me/sitemap.xml
+Sitemap: https://mfarhanmughal.github.io/sitemap.xml

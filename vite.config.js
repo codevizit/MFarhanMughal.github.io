@@ -27,7 +27,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), copyIndexTo404()],
   base: '/',
   build: {
-    target: 'es2020', 
-    
+    target: 'es2020',
+    outDir: 'dist',
   }
 })

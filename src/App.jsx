@@ -2,306 +2,138 @@ import { useEffect, useRef } from 'react'
 import { Link, Route, Routes, useParams } from 'react-router-dom'
 import { motion as Motion } from 'framer-motion'
 import cvFile from './assets/My_CV.pdf'
-import nlpCertificateImage from './assets/nlpcertificate.png'
-import dataScienceCertificate from './assets/datascience.pdf'
+import profileImage from './assets/profile.jpeg'
 import ScrollToTop from './scrollToTop.jsx'; 
 const headerLinks = [
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/s-shahzaib' },
-  { label: 'GitHub', href: 'https://github.com/Shahzaib30' },
-  { label: 'Upwork', href: 'https://www.upwork.com/freelancers/~01774fb1bf81238658' },
-  { label: 'Kaggle', href: 'https://www.kaggle.com/shahzaib2222' },
-  { label: 'Email', href: 'mailto:shahdesigner30@gmail.com' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mfarhanmughal' },
+  { label: 'GitHub', href: 'https://github.com/codevizit' },
+  { label: 'Email', href: 'mailto:sardarfarhanmughal627@gmail.com' },
 ]
 
 const skills = [
   {
-    title: 'Languages',
-    items: ['Python', 'SQL', 'C++', 'JavaScript'],
+    title: 'Programming Languages',
+    items: ['Python', 'R', 'SQL', 'C++', 'Java'],
   },
   {
-    title: 'Frameworks & Libraries',
+    title: 'ML/DL Frameworks',
     items: [
-      'PyTorch',
       'TensorFlow',
+      'PyTorch',
       'Scikit-learn',
+      'Neural Networks',
+      'CNNs',
+      'RNNs',
+      'Model Optimization',
+    ],
+  },
+  {
+    title: 'NLP & GenAI',
+    items: [
+      'Text & Speech Processing',
+      'Sentiment Analysis',
+      'Transformer Models',
       'LangChain',
-      'LlamaIndex',
-      'Hugging Face',
-      'NLTK',
-      'FastAPI',
-      'Flask',
-    ],
-  },
-  {
-    title: 'AI Techniques',
-    items: [
+      'LangGraph',
       'RAG',
-      'Fine-tuning (LoRA)',
-      'Embeddings',
-      'Vector Databases',
-      'Prompt Engineering',
-      'Model Deployment',
+      'Fine-tuning BERT',
     ],
   },
   {
-    title: 'Tools',
+    title: 'Tools & Libraries',
     items: [
-      'Docker',
-      'Git',
-      'Linux',
-      'VS Code',
-      'Jupyter Notebook',
+      'Jupyter',
       'Google Colab',
-      'Anaconda',
-      'Postman',
-      'GitHub Actions',
-      'MySQL',
-      'PostgreSQL',
+      'Pandas',
+      'NumPy',
+      'Matplotlib',
+      'Git',
+      'Flask',
+      'FastAPI',
+      'Pydantic',
+      'Streamlit',
       'FAISS',
-      'Pinecone',
-      'MLflow',
-      'Weights & Biases',
-      'AWS',
-      'GCP',
+      'Vertex AI',
     ],
+  },
+  {
+    title: 'Cloud & Automation',
+    items: ['AWS', 'Sagemaker', 'n8n.io', 'Data Mining'],
   },
   {
     title: 'Frontend',
-    items: ['React.js', 'HTML', 'CSS','Vue.js','Three.js','Next.js'],
+    items: ['React Native', 'HTML', 'CSS'],
   },
-  {
-    title: 'Other',
-    items: ['Wordpress','SEO','Google Analytics','Figma','Canva',],
-  }
 ]
 
 const projects = [
   {
-    slug: 'tavi-planning-system',
-    title: 'TAVI Planning System using Deep Learning',
+    slug: 'smart-irrigation-system',
+    title: 'Smart Irrigation System (FYP)',
     year: '2025',
     description:
-      'Automated clinical-grade TAVI planning leveraging nnUNet for volumetric segmentation and stent sizing from CTA.',
-    tools: ['nnUNet', 'PyTorch', '3D Segmentation', 'Medical Imaging'],
-    status: 'In Progress',
+      'Neural Network-based irrigation prediction system achieving 98% accuracy with GPT-powered recommendations and IoT integration.',
+    tools: ['Python', 'Neural Networks', 'ESP32', 'Arduino', 'React Native'],
+    status: 'Completed',
     image:
-      'https://images.unsplash.com/photo-1504439468489-c8920d796a29?auto=format&fit=crop&w=1200&q=80&sat=-35',
-    imageAlt: '3D cardiac visualization rendered from CTA scans',
-    github: 'https://github.com/Shahzaib30/tavi-planning-system',
+      'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1200&q=80&sat=-20',
+    imageAlt: 'Smart irrigation system with sensors and mobile app interface',
+    github: 'https://github.com/MFarhanMughal/smart-irrigation-system',
     summary:
-      'Building a point-and-click planning cockpit for cardiologists that ingests CTA scans, segments anatomy, and returns precise stent sizing in under five minutes.',
+      'Developed an intelligent irrigation system that combines sensor data with WeatherAPI to predict optimal irrigation timing. The system uses a Neural Network model to achieve 98% prediction accuracy and integrates GPT-powered recommendations to reduce manual intervention.',
     highlights: [
-      'nnUNet + MONAI pipeline with automatic quality checks',
-      'Sub-2mm measurement variance on validation datasets',
-      'FastAPI microservice deployed on self-hosted GPU node',
+      'Neural Network model achieving 98% irrigation prediction accuracy',
+      'GPT-powered recommendations for automated decision-making',
+      'Full-stack implementation with ESP32/Arduino hardware and React Native mobile app',
+      'Real-time sensor data integration with WeatherAPI',
     ],
     detailSections: [
       {
         title: 'Problem',
-        body: 'Cardiac teams manually traced valve boundaries for every TAVI candidate, which could take over an hour per patient and produced inconsistent sizing.',
+        body: 'Traditional irrigation systems lack intelligence and often waste water resources. Farmers need an automated solution that can predict optimal irrigation timing based on environmental conditions.',
       },
       {
         title: 'Solution',
-        body: 'Designed a volumetric workflow: DICOM ingestion → nnUNet inference → mesh post-processing → stent sizing heuristics → PDF planning report.',
+        body: 'Built a comprehensive IoT-based system that collects sensor data (soil moisture, temperature, humidity) and combines it with WeatherAPI data. A Neural Network model processes this information to predict irrigation needs with 98% accuracy. GPT integration provides intelligent recommendations, and a React Native app enables remote monitoring and control.',
       },
       {
         title: 'Impact',
-        body: 'Pilot sites reduced planning time by 78% while giving surgeons richer visual overlays and an auditable trail per patient.',
+        body: 'The system significantly reduces water waste and manual intervention while maintaining optimal crop health. The high accuracy rate ensures efficient resource utilization and cost savings for agricultural operations.',
       },
     ],
   },
   {
-    slug: 'grantgenius',
-    title: 'GrantGenius – AI Grant Matching & Proposal Generator',
-    year: '2024',
-    description:
-      'LLM-powered assistant that surfaces relevant grants and drafts polished proposals with context-aware reasoning.',
-    tools: ['Python', 'LangChain', 'LLMs', 'NLP'],
-    status: 'Completed',
-    image:
-      'https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=1200&q=80&sat=-20',
-    imageAlt: 'Team collaborating over grant documents and laptops',
-    github: 'https://github.com/Shahzaib30/grantgenius',
-    summary:
-      'A retrieval-augmented LLM that watches 2,000+ grant feeds, matches opportunities to each NGO, and drafts first-pass proposals with consistent voice.',
-    highlights: [
-      'Custom embedder fine-tuned on 6 years of successful grants',
-      'Insight dashboard built with React + TanStack Table',
-      'Guardrailed proposal generation with factuality checks',
-    ],
-    detailSections: [
-      {
-        title: 'Discovery',
-        body: 'Clients struggled to keep up with rapidly changing funding criteria. We mapped their decision tree to a vector database + eligibility engine.',
-      },
-      {
-        title: 'Automation',
-        body: 'Daily cron jobs crawl grant APIs, normalize metadata, and sync embeddings into Pinecone so scoring stays instant.',
-      },
-      {
-        title: 'Results',
-        body: 'Average research time fell from 6 hours to 35 minutes per grant and close rates improved by 18% thanks to stronger positioning.',
-      },
-    ],
-  },
-  {
-    slug: 'speech-emotion-recognition',
-    title: 'Speech Emotion Recognition System',
+    slug: 'agentic-chatbot-rag',
+    title: 'Agentic Chatbot with RAG and Tools',
     year: '2025',
     description:
-      'Accuracy: 90%+. Deep neural architecture that classifies speaker sentiment for safer, more human voice interfaces.',
-    tools: ['Audio Processing', 'CNNs', 'PyTorch'],
+      'Advanced agentic AI chatbot capable of retrieving external knowledge using RAG, integrated with multiple tools and APIs for task automation.',
+    tools: ['LangChain', 'LangGraph', 'FAISS', 'OpenAI', 'Streamlit'],
     status: 'Completed',
     image:
-      'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1200&q=80&sat=-15',
-    imageAlt: 'Waveform visualizations on dual monitors',
-    github: 'https://github.com/Shahzaib30/speech-emotion-recognition',
+      'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80&sat=-15',
+    imageAlt: 'AI chatbot interface with RAG capabilities',
+    github: 'https://github.com/MFarhanMughal/agentic-chatbot-rag',
     summary:
-      'Built a multi-task CNN + BiLSTM pipeline that understands tone, urgency, and stress levels from streaming audio for safer IVR agents.',
+      'Developed an agentic AI chatbot that leverages Retrieval-Augmented Generation (RAG) to retrieve and reason over external knowledge. The system integrates multiple tools and APIs to enable task automation and provide contextual responses through an interactive Streamlit interface.',
     highlights: [
-      'SpecAugment + mixup for far-field robustness',
-      'Self-serve labeling UI for call-center SMEs',
-      '99th percentile latency under 150ms on GPU edge nodes',
+      'RAG implementation for knowledge retrieval and contextual reasoning',
+      'Multi-tool integration for task automation and API connectivity',
+      'Interactive Streamlit interface for real-time AI assistance',
+      'Advanced agentic architecture using LangChain and LangGraph',
     ],
     detailSections: [
       {
-        title: 'Dataset',
-        body: 'Combined open-source corpora (RAVDESS, CREMA-D) with 400 hours of anonymized support calls to balance accents and noise profiles.',
-      },
-      {
-        title: 'Modeling',
-        body: 'Stacked 2D CNN front-end for spectrogram features with a BiLSTM decoder plus focal loss to correct class imbalance.',
-      },
-      {
-        title: 'Deployment',
-        body: 'Wrapped the model inside TorchScript, served through Triton Inference Server, and streamed classifications into a React ops dashboard.',
-      },
-    ],
-  },
-  {
-    slug: 'rankspotter-serp-tracker',
-    title: 'RankSpotter – Real-time SERP Tracker',
-    year: '2025',
-    description:
-      'Production-grade SERP monitoring stack with React dashboards and a Flask data pipeline, currently scaling to more keywords.',
-    tools: ['React', 'Flask', 'PostgreSQL', 'SERP APIs'],
-    status: 'Completed',
-    image:
-      'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80&sat=-10',
-    imageAlt: 'Analytics dashboard with ranking charts',
-    github: 'https://github.com/Shahzaib30/rankspotter',
-    summary:
-      'Always-on rank tracking with anomaly alerts, competitor overlays, and automatic screenshot evidence per SERP movement.',
-    highlights: [
-      'Headless Chromium workers capture pixel-perfect SERPs',
-      'Multi-tenant RBAC with Supabase Auth',
-      'Hourly refresh loop covering 12k keywords',
-    ],
-    detailSections: [
-      {
-        title: 'Pipeline',
-        body: 'Scheduler fans out to rotating proxies, scrapes SERPs, and normalizes features (position, pixel depth, SERP features) before landing in Postgres.',
-      },
-      {
-        title: 'Product',
-        body: 'React dashboard shows sparkline deltas, “share of search” trendlines, and push notifications for dramatic drops.',
-      },
-      {
-        title: 'Business Impact',
-        body: 'SEO teams cut diagnosis time from days to minutes and proved ROI with automated weekly PDF digests.',
-      },
-    ],
-  },
-  {
-    slug: 'python-music-player',
-    title: 'Python Music Player',
-    year: '2023',
-    description: 'Clean Tkinter desktop app for playlist management and local playback.',
-    tools: ['Python', 'Tkinter'],
-    status: 'Completed',
-    image:
-      'https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&w=1200&q=80&sat=-12',
-    imageAlt: 'Vintage headphones connected to a laptop',
-    github: 'https://github.com/Shahzaib30/python-music-player',
-    summary:
-      'A focused desktop player with waveform previews, queue controls, and keyboard shortcuts for DJs who prefer offline crates.',
-    highlights: [
-      'Mutagen-powered metadata editing',
-      'SQLite library with fuzzy search',
-      'Cross-platform packaging via PyInstaller',
-    ],
-    detailSections: [
-      {
-        title: 'Interface',
-        body: 'Custom Tkinter theme with dark palette, dynamic resizing, and a queue drawer inspired by Ableton.',
+        title: 'Architecture',
+        body: 'Built using LangChain and LangGraph to create an agentic system that can reason, retrieve information, and execute tasks. FAISS vector database enables efficient similarity search for knowledge retrieval, while OpenAI models power the conversational capabilities.',
       },
       {
         title: 'Features',
-        body: 'Drag-and-drop playlists, waveform scrubbing, and auto-saving last session state.',
+        body: 'The chatbot can retrieve information from external knowledge bases, integrate with multiple APIs for task automation, and provide contextual responses. The Streamlit interface allows users to interact with the system in real-time, making it suitable for various applications including customer support, research assistance, and workflow automation.',
       },
       {
-        title: 'Extendability',
-        body: 'Plugin hooks allow users to sync last.fm scrobbles or map MIDI controllers.',
-      },
-    ],
-  },
-  {
-    slug: 'nlp-mini-projects',
-    title: 'NLP Mini Projects',
-    year: '—',
-    description: 'A curated pack of smaller NLP experiments and utilities.',
-    tools: ['Coming Soon'],
-    status: 'Coming Soon',
-    image:
-      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80&sat=-20',
-    imageAlt: 'Code editor with highlighted NLP scripts',
-    github: 'https://github.com/Shahzaib30/nlp-mini-projects',
-    summary: 'Collection of micro-experiments: prompt optimizers, summarizers, and evaluation harnesses.',
-    highlights: ['Batch evaluation harness', 'Prompt templating playground'],
-    detailSections: [
-      {
-        title: 'Status',
-        body: 'Currently documenting the most reusable snippets before open-sourcing.',
-      },
-    ],
-  },
-  {
-    slug: 'rag-chatbot',
-    title: 'RAG Chatbot',
-    year: '—',
-    description: 'Domain-tuned retrieval-augmented chatbot with guardrails.',
-    tools: ['Coming Soon'],
-    status: 'Coming Soon',
-    image:
-      'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80&sat=-10',
-    imageAlt: 'Chat interface mockups on a tablet',
-    github: 'https://github.com/Shahzaib30/rag-chatbot',
-    summary: 'An enterprise-ready assistant with policy guardrails, vector search, and analytics.',
-    highlights: ['Private data connectors', 'Realtime guardrail tracing'],
-    detailSections: [
-      {
-        title: 'Status',
-        body: 'Currently integrating vendor knowledge bases and access controls.',
-      },
-    ],
-  },
-  {
-    slug: 'ai-resume-reviewer',
-    title: 'AI Resume Reviewer',
-    year: '—',
-    description: 'Automated feedback loop for stronger AI-ready resumes.',
-    tools: ['Coming Soon'],
-    status: 'Coming Soon',
-    image:
-      'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80&sat=-10',
-    imageAlt: 'Printed resumes marked with annotations',
-    github: 'https://github.com/Shahzaib30/ai-resume-reviewer',
-    summary: 'Uploads a resume, benchmarks it against role descriptions, and outputs quantified improvements.',
-    highlights: ['ATS optimization scoring', 'Interview-ready recommendations'],
-    detailSections: [
-      {
-        title: 'Status',
-        body: 'Finishing the scoring rubric and UX polish before launch.',
+        title: 'Applications',
+        body: 'This system demonstrates practical applications of agentic AI in real-world scenarios, combining RAG for knowledge management with tool integration for actionable AI assistance.',
       },
     ],
   },
@@ -312,44 +144,60 @@ const featuredProjects = projects.slice(0, 3)
 
 const experiences = [
   {
-    role: 'Upwork — AI, Web Development & SEO',
-    period: '2022 – Present',
+    role: 'Tech-Intern — Knodemy NSTP',
+    period: 'Oct 2025 (1 Month)',
     summary:
-      '100% Job Success. Delivered ML models, NLP systems, automation tools, and client-centered solutions.',
+      'Contributed to developing and training AI agents integrated into educational platforms to enhance interactivity and personalized learning experiences. Organized and facilitated interactive AI learning sessions and workshops for K–12 learners.',
+    link: 'https://drive.google.com/file/d/1vvRzesFR29uyj-6jkl8Zmptdq-Vu747p/view',
   },
   {
-    role: 'Data Science Intern — Digital Empowerment Network',
-    period: '6 Months',
-    summary: 'Built ML models, EDA dashboards, and decision-ready analytics.',
+    role: 'AI Developer Intern — Wise Tech',
+    period: 'Jan 2025 – June 2025 (5 Months)',
+    summary:
+      'Contributed to the development, optimization, and evaluation of machine learning models, including data preprocessing, feature engineering, and performance tuning. Conducted data analysis and technical research, demonstrating strong problem-solving skills and professional teamwork.',
+    link: 'https://drive.google.com/file/d/1yOa0BzuW_DAFhvocW3VM9UWP4yn2QcpI/view',
   },
   {
-    role: 'NLP Intern — Elevvo Pathways',
-    period: '1 Month',
-    summary: 'Developed sentiment pipelines, preprocessing flows, and evaluation suites.',
+    role: 'Subject Guide / Tutor — Bright Head Academy',
+    period: 'Jan 2024 – June 2024 (6 Months)',
+    summary:
+      'Guided and mentored students in Artificial Intelligence, Machine Learning, and Python programming projects. Supported international students (US, UK, Canada, Europe) by supervising projects and simplifying complex AI/ML concepts to improve problem-solving skills.',
+    link: 'https://drive.google.com/file/d/1EsxwPi4jvCasSHrF6DaoYIpeVlCtIYs7/view',
   },
 ]
 
 const education = [
   {
-    school: 'BS Artificial Intelligence — NUML Islamabad',
-    detail: '3.5 CGPA',
-  },
-  {
-    school: 'Intermediate & Matric — FG Public School and College Bagh',
-    detail: '80%',
+    school: 'BS Artificial Intelligence — National University of Modern Languages (NUML), Islamabad',
+    detail: 'Feb 2022 – Jan 2026 • CGPA: 3.5 / 4.0 • Among the top 3% of the batch',
   },
 ]
 
 const certifications = [
   {
-    title: 'NLP Certification',
-    href: nlpCertificateImage,
-    format: 'PNG',
+    title: 'Fine Tune BERT for Text Classification with TensorFlow',
+    href: 'https://www.coursera.org/account/accomplishments/verify/YR6T8KJ6XJ47',
+    format: 'Coursera',
   },
   {
-    title: 'Data Science Certification',
-    href: dataScienceCertificate,
-    format: 'PDF',
+    title: 'Introduction to Generative AI',
+    href: 'https://www.coursera.org/account/accomplishments/verify/TIPVU2VNYF79',
+    format: 'Google Cloud',
+  },
+  {
+    title: 'Programming for Everybody (Getting Started with Python)',
+    href: 'https://www.coursera.org/account/accomplishments/verify/DHQWUG2T6VS4',
+    format: 'Coursera',
+  },
+  {
+    title: 'Introduction to Computer Vision and Image Processing',
+    href: 'https://www.coursera.org/account/accomplishments/verify/0OLH9W0JP304',
+    format: 'Coursera',
+  },
+  {
+    title: 'Generative AI with AWS',
+    href: 'https://www.udacity.com/certificate/e/730111c6-3f00-11f0-a8fb-5fbc2e85c2eb',
+    format: 'Udacity',
   },
 ]
 
@@ -473,19 +321,35 @@ function HeroSection() {
   return (
     <Motion.header className="space-y-6 pb-14" initial="hidden" animate="visible" variants={fadeIn}>
       <p className="text-xs uppercase tracking-[0.5em] text-gray-500">Portfolio</p>
-      <h1 className="text-4xl font-semibold text-white sm:text-5xl">
-        Shahzaib Shafique<span className="text-[#64ffda]">.</span>
-      </h1>
+      <div className="flex items-center justify-between gap-6">
+        <h1 className="text-4xl font-semibold text-white sm:text-5xl">
+          M Farhan Mughal<span className="text-[#64ffda]">.</span>
+        </h1>
+        <Motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="relative flex-shrink-0"
+        >
+          <div className="relative h-28 w-28 sm:h-40 sm:w-40">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#64ffda]/20 to-[#64ffda]/5 blur-xl" />
+            <img
+              src={profileImage}
+              alt="M Farhan Mughal"
+              className="relative h-full w-full rounded-full border-4 border-[#64ffda]/30 object-cover shadow-[0_0_30px_rgba(100,255,218,0.3)]"
+            />
+          </div>
+        </Motion.div>
+      </div>
       <div className="text-lg text-gray-300 sm:text-xl">
-        <p className="font-medium text-white">AI Engineer</p>
+        <p className="font-medium text-white">Associate AI/ML Engineer</p>
         <p className="text-gray-400">Islamabad, Pakistan</p>
       </div>
       <div className="text-base text-gray-400">
         <p>
-          I’m an AI Engineer focused on building practical and reliable machine learning, NLP, and LLM-based solutions.
-          I enjoy creating end-to-end AI systems using Python, PyTorch, LangChain, and modern cloud tools. I’ve completed
-          multiple AI projects through Upwork with a 100% Job Success Score, and I love using AI to automate workflows,
-          improve efficiency, and create real impact.
+          Aspiring AI professional equipped with hands-on experience in machine learning, deep learning, Agentic AI and data science, 
+          gained through real-world projects and top-rated certifications. Skilled in Python and working with large language models. 
+          Passionate about transforming complex data into intelligent solutions and exploring the potential of intelligent systems to create meaningful impact.
         </p>
       </div>
       <div className="flex flex-wrap gap-3 text-sm">
@@ -504,7 +368,7 @@ function HeroSection() {
       <div className="flex flex-wrap gap-3 text-sm">
         <a
           href={cvFile}
-          download="Shahzaib_Shafique_CV.pdf"
+          download="M_Farhan_Mughal_CV.pdf"
           className="inline-flex items-center gap-2 rounded-full border border-[#64ffda]/70 bg-[#64ffda]/10 px-5 py-2 font-semibold text-[#64ffda] shadow-[0_10px_30px_rgba(100,255,218,0.25)] transition hover:-translate-y-0.5 hover:bg-[#64ffda]/20"
         >
           Download CV
@@ -580,6 +444,17 @@ function ExperienceSection() {
               <p className="text-sm font-mono uppercase tracking-[0.3em] text-gray-500">{exp.period}</p>
             </div>
             <p className="mt-3 text-gray-300">{exp.summary}</p>
+            {exp.link && (
+              <a
+                href={exp.link}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-flex items-center gap-2 text-sm text-[#64ffda] transition hover:text-[#64ffda]/80 hover:underline"
+              >
+                View Experience Letter
+                <span aria-hidden="true" className="text-xs">↗</span>
+              </a>
+            )}
           </div>
         ))}
       </div>
@@ -822,7 +697,7 @@ function SiteFooter() {
         ))}
       </div>
       <p className="mt-4 text-gray-500">
-        <span>shahzaibshafique.me</span> — © 2025
+        <span>M Farhan Mughal</span> — © 2025
       </p>
     </Motion.footer>
   )

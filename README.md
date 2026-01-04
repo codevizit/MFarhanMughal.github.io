@@ -1,5 +1,5 @@
 
-## Shahzaib Shafique — Minimal AI Portfolio
+## M Farhan Mughal — Minimal AI Portfolio
 
 ### ✨ Features
 - Dark, centered layout (~800px max width) with smooth scrolling and soft shadows
@@ -16,5 +16,4 @@
 
 ### 📄 License
 
-This project is personal to Shahzaib Shafique. Please do not redistribute the branding or copy without permission.
->>>>>>> f9a82ce (initial commit)
+This project is personal to M Farhan Mughal. Please do not redistribute the branding or copy without permission.

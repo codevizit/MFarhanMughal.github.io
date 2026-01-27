@@ -11,7 +11,7 @@ function copyIndexTo404() {
   return {
     name: 'copy-index-to-404',
     closeBundle() {
-      const outDir = path.resolve(rootDir, '.')
+      const outDir = path.resolve(rootDir, 'dist')
       const indexPath = path.join(outDir, 'index.html')
       const fallbackPath = path.join(outDir, '404.html')
 
@@ -24,10 +24,14 @@ function copyIndexTo404() {
 
 export default defineConfig({
   plugins: [react(), tailwindcss(), copyIndexTo404()],
-  base: '/',
+  // Relative base makes builds portable across:
+  // - username.github.io root sites
+  // - project pages (/repo/)
+  // - custom domains
+  base: './',
   build: {
     target: 'es2020',
-    outDir: '.',
-    emptyOutDir: false,
+    outDir: 'dist',
+    emptyOutDir: true,
   },
 })

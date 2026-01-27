@@ -1,6 +1,9 @@
 
 ## M Farhan Mughal — Minimal AI Portfolio
 
+### ✅ Requirements
+- Node.js >= 20.19 (required by Vite 7 + React Router 7)
+
 ### ✨ Features
 - Dark, centered layout (~800px max width) with smooth scrolling and soft shadows
 - Hero, skills grid, timeline-style projects, experience, education, certifications, and footer
